@@ -1,0 +1,72 @@
+2025-01-06 02:44:43,352 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 02:44:52,236 - app.services.translator - ERROR - Failed to initialize Google Cloud Translate client: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+2025-01-06 02:57:58,743 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 02:58:01,750 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-06 02:58:05,750 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-06 02:58:07,939 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: [Errno 64] Host is down
+2025-01-06 02:58:07,939 - google.auth._default - WARNING - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-06 02:58:07,939 - app.services.translator - ERROR - Failed to initialize Google Cloud Translate client: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+2025-01-06 02:58:39,261 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 02:58:42,267 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-01-06 02:58:46,287 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-01-06 02:58:48,352 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: [Errno 64] Host is down
+2025-01-06 02:58:48,352 - google.auth._default - WARNING - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-01-06 02:58:48,352 - app.services.translator - ERROR - Failed to initialize Google Cloud Translate client: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+2025-01-06 03:00:02,572 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 03:00:02,573 - app.services.translator - INFO - Successfully initialized Google Cloud Translate client
+2025-01-06 03:00:06,169 - app.services.video_downloader - ERROR - Error downloading video https://www.youtube.com/watch?v=B1BdQcJ2ZYY: ERROR: You have requested merging of multiple formats but ffmpeg is not installed. Aborting due to --abort-on-error
+2025-01-06 03:00:09,968 - app.services.video_downloader - ERROR - Error downloading video https://www.youtube.com/watch?v=B1BdQcJ2ZYY: ERROR: You have requested merging of multiple formats but ffmpeg is not installed. Aborting due to --abort-on-error
+2025-01-06 03:00:10,325 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:00:10,617 - app.services.translator - INFO - Successfully translated text from en to es
+2025-01-06 03:00:10,633 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x128ca6e80>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:00:14,260 - app.services.video_downloader - ERROR - Error downloading video https://www.youtube.com/watch?v=B1BdQcJ2ZYY: ERROR: You have requested merging of multiple formats but ffmpeg is not installed. Aborting due to --abort-on-error
+2025-01-06 03:00:17,437 - app.services.video_downloader - ERROR - Error downloading video https://www.youtube.com/watch?v=B1BdQcJ2ZYY: ERROR: You have requested merging of multiple formats but ffmpeg is not installed. Aborting due to --abort-on-error
+2025-01-06 03:17:19,241 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 03:17:19,242 - app.services.translator - INFO - Successfully initialized Google Cloud Translate client
+2025-01-06 03:17:40,061 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=B1BdQcJ2ZYY
+2025-01-06 03:18:00,302 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=B1BdQcJ2ZYY
+2025-01-06 03:18:00,874 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:18:01,184 - app.services.translator - INFO - Successfully translated text from en to es
+2025-01-06 03:18:01,213 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1215a6310>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:18:26,679 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=B1BdQcJ2ZYY
+2025-01-06 03:18:56,278 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=B1BdQcJ2ZYY
+2025-01-06 03:20:18,281 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 03:20:18,283 - app.services.translator - INFO - Successfully initialized Google Cloud Translate client
+2025-01-06 03:20:26,678 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:20:34,241 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:20:34,457 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:20:34,744 - app.services.translator - INFO - Successfully translated text from en to es
+2025-01-06 03:20:34,751 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x120999ac0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:20:42,400 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:20:49,362 - app.services.video_downloader - ERROR - Failed to download video or extract audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:21:22,485 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 03:21:22,486 - app.services.translator - INFO - Successfully initialized Google Cloud Translate client
+2025-01-06 03:21:30,688 - app.services.video_downloader - ERROR - Video file not found at test_outputs/jNQXAC9IVRw.mp4
+2025-01-06 03:21:38,407 - app.services.video_downloader - ERROR - Video file not found at test_outputs/jNQXAC9IVRw.mp4
+2025-01-06 03:21:38,653 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:21:38,895 - app.services.translator - INFO - Successfully translated text from en to es
+2025-01-06 03:21:38,899 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x122bf6370>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:21:46,512 - app.services.video_downloader - ERROR - Video file not found at test_outputs/jNQXAC9IVRw.mp4
+2025-01-06 03:21:55,004 - app.services.video_downloader - ERROR - Video file not found at test_outputs/jNQXAC9IVRw.mp4
+2025-01-06 03:23:28,218 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 03:23:28,219 - app.services.translator - INFO - Successfully initialized Google Cloud Translate client
+2025-01-06 03:23:44,068 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:24:02,188 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:24:11,865 - app.services.transcriber - INFO - Successfully transcribed audio: test_outputs/jNQXAC9IVRw.wav
+2025-01-06 03:24:12,097 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:24:12,369 - app.services.translator - INFO - Successfully translated text from en to es
+2025-01-06 03:24:12,375 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x12cb79640>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:24:30,604 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:24:30,621 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x12b629cd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:24:49,617 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:25:00,649 - app.services.transcriber - INFO - Successfully transcribed audio: test_outputs/jNQXAC9IVRw.wav
+2025-01-06 03:25:00,890 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:25:01,224 - app.services.translator - INFO - Successfully translated text from en to es
+2025-01-06 03:25:01,232 - app.services.tts - ERROR - Error generating speech: HTTPConnectionPool(host='127.0.0.1', port=7852): Max retries exceeded with url: /api/tts (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x12cbcb790>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2025-01-06 03:26:26,170 - app.services.transcriber - INFO - Loaded Whisper model: base
+2025-01-06 03:26:26,171 - app.services.translator - INFO - Successfully initialized Google Cloud Translate client
+2025-01-06 03:26:43,781 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:27:05,372 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://www.youtube.com/watch?v=jNQXAC9IVRw
+2025-01-06 03:27:20,850 - app.services.transcriber - INFO - Successfully transcribed audio: test_outputs/jNQXAC9IVRw.wav
+2025-01-06 03:27:21,366 - app.services.translator - INFO - Detected language: en
+2025-01-06 03:27:21,643 - app.services.translator - INFO - Successfully translated text from en to es
