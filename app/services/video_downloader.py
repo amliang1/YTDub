@@ -8,12 +8,23 @@ from app.services.storage_service import StorageService
 logger = get_logger(__name__)
 
 class VideoDownloader:
-    def __init__(self, storage_service: Optional[StorageService] = None):
+    def __init__(
+        self,
+        storage_service: Optional[StorageService] = None,
+        output_dir: Optional[str] = None,
+    ):
         """
         Initialize VideoDownloader with optional StorageService.
-        If no StorageService is provided, a new one will be created.
+        If no StorageService is provided, one will be created.
+        For backward compatibility, an optional `output_dir` may be supplied
+        to set the base storage path used by the StorageService.
         """
-        self.storage_service = storage_service or StorageService()
+        if storage_service is not None:
+            self.storage_service = storage_service
+        elif output_dir is not None:
+            self.storage_service = StorageService(output_dir)
+        else:
+            self.storage_service = StorageService()
         
         self.ydl_opts = {
             'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',

@@ -70,3 +70,67 @@
 2025-01-06 03:27:20,850 - app.services.transcriber - INFO - Successfully transcribed audio: test_outputs/jNQXAC9IVRw.wav
 2025-01-06 03:27:21,366 - app.services.translator - INFO - Detected language: en
 2025-01-06 03:27:21,643 - app.services.translator - INFO - Successfully translated text from en to es
+2025-09-13 15:52:52,498 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 15:53:37,270 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 15:53:37,271 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 15:53:37,272 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 15:53:37,272 - app.services.translator - ERROR - Translation failed after retries: HTTP 500
+2025-09-13 15:53:37,276 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-0/test_download_success0/storage/temp/processing_20250913_155337_temp.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-0/test_download_success0/storage/temp/processing_20250913_155337_temp.wav
+2025-09-13 15:53:37,276 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://youtube.com/watch?v=test123
+2025-09-13 15:53:37,278 - app.services.video_downloader - ERROR - Video file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-0/test_download_failure_video_mi0/storage/temp/processing_20250913_155337_temp.mp4
+2025-09-13 15:53:37,280 - app.services.video_downloader - ERROR - Audio file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-0/test_download_failure_audio_mi0/storage/temp/processing_20250913_155337_temp.wav
+2025-09-13 15:53:37,281 - app.services.video_downloader - ERROR - Error downloading video https://youtube.com/watch?v=test123: Download failed
+2025-09-13 15:53:37,281 - app.services.video_downloader - ERROR - Exception type: Exception
+2025-09-13 15:53:37,283 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-0/test_cleanup0/test_video.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-0/test_cleanup0/test_audio.wav
+2025-09-13 16:25:03,200 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/translation/jobs "HTTP/1.1 201 Created"
+2025-09-13 16:25:03,202 - httpx - INFO - HTTP Request: GET http://testserver/api/v1/translation/jobs/899d456b-a179-454d-9512-274de6514c7b "HTTP/1.1 200 OK"
+2025-09-13 16:25:03,207 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:25:03,207 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:25:03,208 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:25:03,208 - app.services.translator - ERROR - Translation failed after retries: HTTP 500
+2025-09-13 16:25:03,211 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-1/test_download_success0/storage/temp/processing_20250913_162503_temp.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-1/test_download_success0/storage/temp/processing_20250913_162503_temp.wav
+2025-09-13 16:25:03,212 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://youtube.com/watch?v=test123
+2025-09-13 16:25:03,213 - app.services.video_downloader - ERROR - Video file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-1/test_download_failure_video_mi0/storage/temp/processing_20250913_162503_temp.mp4
+2025-09-13 16:25:03,215 - app.services.video_downloader - ERROR - Audio file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-1/test_download_failure_audio_mi0/storage/temp/processing_20250913_162503_temp.wav
+2025-09-13 16:25:03,217 - app.services.video_downloader - ERROR - Error downloading video https://youtube.com/watch?v=test123: Download failed
+2025-09-13 16:25:03,217 - app.services.video_downloader - ERROR - Exception type: Exception
+2025-09-13 16:25:03,218 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-1/test_cleanup0/test_video.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-1/test_cleanup0/test_audio.wav
+2025-09-13 16:26:12,196 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/translation/jobs "HTTP/1.1 201 Created"
+2025-09-13 16:26:12,197 - httpx - INFO - HTTP Request: GET http://testserver/api/v1/translation/jobs/56204af3-d67d-4a38-b8ec-0a7b98bfb619 "HTTP/1.1 200 OK"
+2025-09-13 16:26:12,202 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:26:12,203 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:26:12,203 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:26:12,204 - app.services.translator - ERROR - Translation failed after retries: HTTP 500
+2025-09-13 16:26:12,208 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-2/test_download_success0/storage/temp/processing_20250913_162612_temp.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-2/test_download_success0/storage/temp/processing_20250913_162612_temp.wav
+2025-09-13 16:26:12,208 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://youtube.com/watch?v=test123
+2025-09-13 16:26:12,210 - app.services.video_downloader - ERROR - Video file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-2/test_download_failure_video_mi0/storage/temp/processing_20250913_162612_temp.mp4
+2025-09-13 16:26:12,212 - app.services.video_downloader - ERROR - Audio file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-2/test_download_failure_audio_mi0/storage/temp/processing_20250913_162612_temp.wav
+2025-09-13 16:26:12,213 - app.services.video_downloader - ERROR - Error downloading video https://youtube.com/watch?v=test123: Download failed
+2025-09-13 16:26:12,213 - app.services.video_downloader - ERROR - Exception type: Exception
+2025-09-13 16:26:12,215 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-2/test_cleanup0/test_video.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-2/test_cleanup0/test_audio.wav
+2025-09-13 16:27:05,997 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/translation/jobs "HTTP/1.1 201 Created"
+2025-09-13 16:27:05,999 - httpx - INFO - HTTP Request: GET http://testserver/api/v1/translation/jobs/a09e8dbd-b407-4930-ae18-b18dd9c2ffcf "HTTP/1.1 200 OK"
+2025-09-13 16:27:06,003 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:27:06,004 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:27:06,005 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:27:06,005 - app.services.translator - ERROR - Translation failed after retries: HTTP 500
+2025-09-13 16:27:06,008 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-3/test_download_success0/storage/temp/processing_20250913_162706_temp.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-3/test_download_success0/storage/temp/processing_20250913_162706_temp.wav
+2025-09-13 16:27:06,009 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://youtube.com/watch?v=test123
+2025-09-13 16:27:06,011 - app.services.video_downloader - ERROR - Video file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-3/test_download_failure_video_mi0/storage/temp/processing_20250913_162706_temp.mp4
+2025-09-13 16:27:06,012 - app.services.video_downloader - ERROR - Audio file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-3/test_download_failure_audio_mi0/storage/temp/processing_20250913_162706_temp.wav
+2025-09-13 16:27:06,014 - app.services.video_downloader - ERROR - Error downloading video https://youtube.com/watch?v=test123: Download failed
+2025-09-13 16:27:06,014 - app.services.video_downloader - ERROR - Exception type: Exception
+2025-09-13 16:27:06,015 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-3/test_cleanup0/test_video.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-3/test_cleanup0/test_audio.wav
+2025-09-13 16:27:28,129 - httpx - INFO - HTTP Request: POST http://testserver/api/v1/translation/jobs "HTTP/1.1 201 Created"
+2025-09-13 16:27:28,130 - httpx - INFO - HTTP Request: GET http://testserver/api/v1/translation/jobs/71ee77d6-b9f1-43b9-997a-a8005c67044a "HTTP/1.1 200 OK"
+2025-09-13 16:27:28,134 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:27:28,135 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:27:28,135 - app.services.translator - INFO - Initialized Translate client (key set=True)
+2025-09-13 16:27:28,136 - app.services.translator - ERROR - Translation failed after retries: HTTP 500
+2025-09-13 16:27:28,139 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-4/test_download_success0/storage/temp/processing_20250913_162728_temp.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-4/test_download_success0/storage/temp/processing_20250913_162728_temp.wav
+2025-09-13 16:27:28,139 - app.services.video_downloader - INFO - Successfully downloaded video and extracted audio for https://youtube.com/watch?v=test123
+2025-09-13 16:27:28,140 - app.services.video_downloader - ERROR - Video file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-4/test_download_failure_video_mi0/storage/temp/processing_20250913_162728_temp.mp4
+2025-09-13 16:27:28,142 - app.services.video_downloader - ERROR - Audio file not found at /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-4/test_download_failure_audio_mi0/storage/temp/processing_20250913_162728_temp.wav
+2025-09-13 16:27:28,144 - app.services.video_downloader - ERROR - Error downloading video https://youtube.com/watch?v=test123: Download failed
+2025-09-13 16:27:28,144 - app.services.video_downloader - ERROR - Exception type: Exception
+2025-09-13 16:27:28,145 - app.services.video_downloader - INFO - Cleaned up temporary files: /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-4/test_cleanup0/test_video.mp4, /private/var/folders/d3/rnc5923x6ls1qrg4396b0n7r0000gn/T/pytest-of-alanmliang/pytest-4/test_cleanup0/test_audio.wav

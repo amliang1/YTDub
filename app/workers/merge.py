@@ -4,10 +4,12 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.services.video_processor import VideoProcessor
 from app.core.logging import get_logger
+from app.services.storage_service import StorageService
 import os
 
 logger = get_logger(__name__)
 video_processor = VideoProcessor()
+storage_service = StorageService()
 
 @celery.task(name="merge_audio_video")
 def merge_audio_video_task(chain_data: dict):
@@ -41,6 +43,13 @@ def merge_audio_video_task(chain_data: dict):
                 output_filename=output_filename,
                 adjust_volume=True
             )
+
+            # Move final dubbed video into storage
+            try:
+                stored_output_path = storage_service.save_dubbed_video(output_path, str(video_id))
+                output_path = stored_output_path
+            except Exception as storage_err:
+                logger.error(f"Failed to store dubbed video for {video_id}: {storage_err}")
             
             logger.info(f"Successfully merged video {video_id} with new audio")
             
@@ -49,8 +58,12 @@ def merge_audio_video_task(chain_data: dict):
             video.output_path = output_path
             db.commit()
             
-            # Clean up temporary files
-            video_processor.cleanup(audio_path)
+            # Clean up temporary files (tts audio already copied to storage)
+            try:
+                video_processor.cleanup(audio_path)
+            except Exception as cleanup_err:
+                logger.warning(f"Cleanup warning for video {video_id}: {cleanup_err}
+                ")
             
             return {
                 "status": "success", 

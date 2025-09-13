@@ -1,4 +1,4 @@
-import pytest
+import unittest
 from datetime import datetime, timedelta
 from app.models.translation_job import (
     AudioChunk, 
@@ -9,7 +9,7 @@ from app.models.translation_job import (
 )
 
 
-class TestAudioChunk:
+class TestAudioChunk(unittest.TestCase):
     """Test AudioChunk data model"""
     
     def test_audio_chunk_creation(self):
@@ -79,7 +79,7 @@ class TestAudioChunk:
         assert restored_chunk.translated_text == original_chunk.translated_text
 
 
-class TestJobStatus:
+class TestJobStatus(unittest.TestCase):
     """Test JobStatus data model"""
     
     def test_job_status_creation(self):
@@ -148,7 +148,7 @@ class TestJobStatus:
         assert restored_status.estimated_completion is None
 
 
-class TestTranslationJob:
+class TestTranslationJob(unittest.TestCase):
     """Test TranslationJob data model"""
     
     def test_translation_job_creation(self):
@@ -270,7 +270,7 @@ class TestTranslationJob:
         assert restored_job.final_video_path == original_job.final_video_path
 
 
-class TestTranslationJobDB:
+class TestTranslationJobDB(unittest.TestCase):
     """Test TranslationJobDB database model"""
     
     def test_translation_job_db_creation(self):

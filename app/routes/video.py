@@ -22,6 +22,8 @@ class VideoResponse(BaseModel):
     status: str
     transcription: Optional[str] = None
     translated_text: Optional[str] = None
+    target_language: Optional[str] = None
+    output_path: Optional[str] = None
 
 class TaskResponse(BaseModel):
     task_id: str
@@ -41,13 +43,16 @@ def process_video(request: VideoRequest, db: Session = Depends(get_db)):
             youtube_url=existing_video.youtube_url,
             status=existing_video.status,
             transcription=existing_video.transcription,
-            translated_text=existing_video.translated_text
+            translated_text=existing_video.translated_text,
+            target_language=existing_video.target_language,
+            output_path=existing_video.output_path
         )
 
     # Create new video record
     video = Video(
         youtube_url=str(request.youtube_url),
-        status="pending"
+        status="pending",
+        target_language=request.target_language
     )
     db.add(video)
     db.commit()
@@ -59,7 +64,9 @@ def process_video(request: VideoRequest, db: Session = Depends(get_db)):
     return VideoResponse(
         id=video.id,
         youtube_url=video.youtube_url,
-        status=video.status
+        status=video.status,
+        target_language=video.target_language,
+        output_path=video.output_path
     )
 
 @router.get("/video/{video_id}", response_model=VideoResponse)
@@ -76,7 +83,9 @@ def get_video_status(video_id: int, db: Session = Depends(get_db)):
         youtube_url=video.youtube_url,
         status=video.status,
         transcription=video.transcription,
-        translated_text=video.translated_text
+        translated_text=video.translated_text,
+        target_language=video.target_language,
+        output_path=video.output_path
     )
 
 @router.post("/test/transcribe/{video_id}", response_model=TaskResponse)
@@ -100,7 +109,8 @@ async def test_tts(video_id: int):
     """
     Test the TTS task
     """
-    task = generate_tts_task.delay(video_id, "Sample text", "es")
+    chain_data = {"video_id": video_id, "text": "Sample text", "target_lang": "es"}
+    task = generate_tts_task.delay(chain_data)
     return TaskResponse(task_id=task.id, status=task.status)
 
 @router.post("/test/merge/{video_id}", response_model=TaskResponse)
@@ -108,5 +118,6 @@ async def test_merge(video_id: int):
     """
     Test the merge task
     """
-    task = merge_audio_video_task.delay(video_id, "/tmp/sample.mp3")
+    chain_data = {"video_id": video_id, "audio_path": "/tmp/sample.wav"}
+    task = merge_audio_video_task.delay(chain_data)
     return TaskResponse(task_id=task.id, status=task.status)

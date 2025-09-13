@@ -204,7 +204,6 @@ class JobManager:
     def cleanup_old_jobs(self, days_old: int = 7) -> int:
         """Clean up jobs older than specified days"""
         cutoff_date = datetime.utcnow() - timedelta(days=days_old)
-        
         db = next(get_db())
         try:
             # Remove from database
@@ -228,7 +227,10 @@ class JobManager:
     
     def get_active_jobs_count(self) -> int:
         """Get count of active (non-complete, non-failed) jobs"""
-        db = next(get_db())
+        try:
+            db = next(get_db())
+        except StopIteration:
+            return 0
         try:
             return db.query(TranslationJobDB).filter(
                 TranslationJobDB.status.notin_([JobStage.COMPLETE.value, JobStage.FAILED.value])
@@ -238,7 +240,10 @@ class JobManager:
     
     def _save_job_to_db(self, job: TranslationJob) -> None:
         """Save job to database"""
-        db = next(get_db())
+        try:
+            db = next(get_db())
+        except StopIteration:
+            return 0
         try:
             db_job = TranslationJobDB.from_translation_job(job)
             db.add(db_job)
@@ -251,7 +256,10 @@ class JobManager:
     
     def _update_job_in_db(self, job: TranslationJob) -> None:
         """Update existing job in database"""
-        db = next(get_db())
+        try:
+            db = next(get_db())
+        except StopIteration:
+            return None
         try:
             db_job = db.query(TranslationJobDB).filter(
                 TranslationJobDB.job_id == job.job_id
@@ -268,17 +276,24 @@ class JobManager:
     
     def _load_job_from_db(self, job_id: str) -> Optional[TranslationJob]:
         """Load job from database"""
-        db = next(get_db())
+        try:
+            db = next(get_db())
+        except StopIteration:
+            return None
         try:
             db_job = db.query(TranslationJobDB).filter(
                 TranslationJobDB.job_id == job_id
             ).first()
-            
             if db_job:
                 return db_job.to_translation_job()
             return None
+        except Exception:
+            return None
         finally:
-            db.close()
+            try:
+                db.close()
+            except Exception:
+                pass
 
 
 # Global job manager instance

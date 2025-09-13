@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from .config import settings
+# Prefer settings with sane defaults for local dev
+from .settings import settings
 
 # Convert async URL to sync URL for migrations
 SQLALCHEMY_DATABASE_URL = str(settings.database_url).replace("+asyncpg", "")

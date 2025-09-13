@@ -4,10 +4,12 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.services.tts import AllTalkTTS
 from app.core.logging import get_logger
+from app.services.storage_service import StorageService
 import os
 
 logger = get_logger(__name__)
 tts_service = AllTalkTTS()
+storage_service = StorageService()
 
 @celery.task(name="generate_tts")
 def generate_tts_task(chain_data: dict):
@@ -40,16 +42,24 @@ def generate_tts_task(chain_data: dict):
             )
             
             logger.info(f"Generated audio file for video {video_id}: {audio_path}")
+
+            # Move generated audio into storage-managed location
+            try:
+                stored_audio_path = storage_service.save_tts_audio(audio_path, str(video_id))
+                # Update chain data with the stored path
+                audio_path = stored_audio_path
+            except Exception as storage_err:
+                logger.error(f"Failed to store TTS audio for video {video_id}: {storage_err}")
             
             # Update status
             video.status = "audio_generated"
             db.commit()
             
-            return {
-                "status": "success", 
-                "video_id": video_id,
-                "audio_path": audio_path
-            }
+            chain_data.update({
+                "status": "success",
+                "audio_path": audio_path,
+            })
+            return chain_data
             
         except Exception as tts_error:
             logger.error(f"TTS generation failed for video {video_id}: {str(tts_error)}")

@@ -11,7 +11,7 @@ from app.services.transcriber import Transcriber
 import os
 
 # Initialize services
-downloader = VideoDownloader(output_dir="downloads")
+downloader = VideoDownloader()
 transcriber = Transcriber(model_name="base")
 
 @celery.task(name="transcribe_video")
@@ -32,14 +32,18 @@ def transcribe_video_task(video_id: int):
         video.status = "downloading"
         db.commit()
         
-        # Download video and extract audio
-        result = downloader.download(video.youtube_url)
+        # Download video and extract audio (saved into storage)
+        result = downloader.download(video.youtube_url, str(video.id))
         if not result:
             video.status = "failed"
             db.commit()
             return {"status": "error", "message": "Failed to download video"}
             
         video_path, audio_path = result
+        # Persist file paths
+        video.video_path = video_path
+        video.audio_path = audio_path
+        db.commit()
         
         # Update status to transcribing
         video.status = "transcribing"
@@ -55,10 +59,11 @@ def transcribe_video_task(video_id: int):
             db.commit()
             
             # Chain the next tasks
+            target_lang = video.target_language or "es"
             workflow = chain(
-                translate_text_task.s(video_id, "auto", "es"),
-                generate_tts_task.s(video_id),
-                merge_audio_video_task.s(video_id)
+                translate_text_task.s(video_id, "auto", target_lang),
+                generate_tts_task.s(),
+                merge_audio_video_task.s()
             )
             workflow.apply_async()
             
@@ -69,8 +74,8 @@ def transcribe_video_task(video_id: int):
             }
             
         finally:
-            # Clean up downloaded files
-            downloader.cleanup(video_path, audio_path)
+            # No explicit cleanup here; VideoDownloader already removed temps
+            pass
         
     except Exception as e:
         # Update status to failed if there's an error

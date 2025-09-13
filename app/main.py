@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from .routes import video
+from .routes import translation
 
 app = FastAPI(
     title="YouTube Dubbing MVP",
@@ -7,3 +8,4 @@ app = FastAPI(
 )
 
 app.include_router(video.router, prefix="/api/v1/video", tags=["video"])
+app.include_router(translation.router, prefix="/api/v1/translation", tags=["translation"])
